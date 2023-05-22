@@ -14,27 +14,27 @@ class Usuario(Base):
 
 class Estoque(Base):
     __tablename__ = 'estoque'
-    
+
     id = Column(Integer, primary_key=True, index=True)
     nome = Column(String(150))
     quantidade = Column(Integer)
     preco = Column(Float)
     validade = Column(Date)
+    itens = relationship("PedidoItens", back_populates='estoque')
 
 class Pedido(Base):
     __tablename__ = 'pedidos'
-    
+
     id = Column(Integer, primary_key=True, index=True)
     id_usuario = Column(Integer, ForeignKey('usuarios.id'))
-    id_pedido_itens = Column(Integer, ForeignKey('pedido_itens.id'))
     valor_total = Column(Float)
     data_pedido = Column(Date)
     usuario = relationship("Usuario", back_populates='pedidos')
-    itens = relationship("PedidoItens", back_populates='pedido')
+    itens = relationship("PedidoItens", back_populates='pedido', foreign_keys='PedidoItens.id_pedido')
 
 class PedidoItens(Base):
     __tablename__ = 'pedido_itens'
-    
+
     id = Column(Integer, primary_key=True, index=True)
     id_pedido = Column(Integer, ForeignKey('pedidos.id'))
     id_estoque = Column(Integer, ForeignKey('estoque.id'))

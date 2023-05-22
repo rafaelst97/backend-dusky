@@ -11,10 +11,9 @@ app = FastAPI()
 
 # signup
 @app.post("/api/signup", tags=["usuario"])
-async def create_usuario_signup(usuario: schemas.UsuarioCreate = Body(...), db: Session = Depends(get_db)):
+async def user_signup(usuario: schemas.UsuarioCreate, db: Session = Depends(get_db)):
     try:
-        crud.create_usuario(db, usuario)
-        return signJWT(usuario.email)
+        return crud.create_usuario(db, usuario)
     except UsuarioException as cie:
         raise HTTPException(**cie.__dict__)
 
