@@ -1,7 +1,7 @@
 {
     "client": "Thunder Client",
     "collectionName": "biblioteca_back",
-    "dateExported": "2023-05-22T01:16:54.282Z",
+    "dateExported": "2023-05-22T22:50:08.941Z",
     "version": "1.1",
     "folders": [],
     "requests": [
@@ -14,7 +14,7 @@
             "method": "POST",
             "sortNum": 5000,
             "created": "2023-05-22T00:50:42.061Z",
-            "modified": "2023-05-22T01:09:07.292Z",
+            "modified": "2023-05-22T22:18:07.669Z",
             "headers": [
                 {
                     "name": "Content-Type",
@@ -24,7 +24,7 @@
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nome\": \"John Doe\",\n  \"email\": \"john@example.com\",\n  \"codigo_pessoa\": 123456,\n  \"senha\": \"password\"\n}\n",
+                "raw": "{\n  \"nome\": \"Rafael\",\n  \"email\": \"rafael@gmail.com\",\n  \"codigo_pessoa\": 12,\n  \"senha\": \"123\"\n}\n",
                 "form": []
             },
             "tests": []
@@ -38,12 +38,12 @@
             "method": "POST",
             "sortNum": 7500,
             "created": "2023-05-22T00:50:42.062Z",
-            "modified": "2023-05-22T01:16:13.053Z",
+            "modified": "2023-05-22T22:19:44.654Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"email\": \"john@example.com\",\n  \"codigo_pessoa\": 123456,\n  \"senha\": \"password\"\n}",
+                "raw": "{\n  \"codigo_pessoa\": 12,\n  \"senha\": \"123\"\n}",
                 "form": []
             },
             "tests": []
@@ -57,12 +57,12 @@
             "method": "POST",
             "sortNum": 10000,
             "created": "2023-05-22T00:50:42.063Z",
-            "modified": "2023-05-22T00:50:42.063Z",
+            "modified": "2023-05-22T22:20:41.955Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nome\": \"Lucas\",\n  \"email\": \"lucasdebatin8@univali.br\",\n  \"senha\": \"123456\"\n}",
+                "raw": "{\n  \"nome\": \"Lucas\",\n  \"email\": \"lucasdebatin8@univali.br\",\n  \"codigo_pessoa\": 31,\n  \"senha\": \"123456\"\n}",
                 "form": []
             },
             "auth": {
@@ -80,12 +80,12 @@
             "method": "PUT",
             "sortNum": 15000,
             "created": "2023-05-22T00:50:42.064Z",
-            "modified": "2023-05-22T00:50:42.064Z",
+            "modified": "2023-05-22T22:23:32.414Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"nome\": \"Lucas Debatin\",\n  \"email\": \"lucasdebatin@univali.br\",\n  \"senha\": \"\"\n}",
+                "raw": "{\n  \"nome\": \"Lucas\",\n  \"email\": \"lucasdebatin@univali.br\",\n  \"codigo_pessoa\": 32,\n  \"senha\": \"123\"\n}",
                 "form": []
             },
             "auth": {
@@ -103,7 +103,7 @@
             "method": "DELETE",
             "sortNum": 17500,
             "created": "2023-05-22T00:50:42.065Z",
-            "modified": "2023-05-22T00:50:42.065Z",
+            "modified": "2023-05-22T22:27:52.201Z",
             "headers": [],
             "params": [],
             "auth": {
@@ -117,11 +117,11 @@
             "colId": "97f76680-4fa2-4afe-912d-6ec1bf05d0c6",
             "containerId": "",
             "name": "UsuariosGetById",
-            "url": "http://localhost:3333/api/usuarios/1",
+            "url": "http://localhost:3333/api/usuarios/7",
             "method": "GET",
             "sortNum": 20000,
             "created": "2023-05-22T00:50:42.066Z",
-            "modified": "2023-05-22T00:50:42.066Z",
+            "modified": "2023-05-22T22:28:05.797Z",
             "headers": [],
             "params": [],
             "auth": {
@@ -149,131 +149,20 @@
             "tests": []
         },
         {
-            "_id": "85ffdf85-b78e-42d0-8669-8c2f71c52452",
+            "_id": "508d4645-40fa-465f-8a22-92724838db53",
             "colId": "97f76680-4fa2-4afe-912d-6ec1bf05d0c6",
             "containerId": "",
-            "name": "LivrosPost",
-            "url": "http://localhost:3333/api/livros",
-            "method": "POST",
-            "sortNum": 35000,
-            "created": "2023-05-22T00:50:42.069Z",
-            "modified": "2023-05-22T00:50:42.069Z",
-            "headers": [],
-            "params": [],
-            "body": {
-                "type": "json",
-                "raw": "{\n  \"titulo\": \"Inteligência Artificial\",\n  \"resumo\": \"O livro cobre uma variedade de técnicas de Inteligência Artificial, algoritmos e metodologias, incluindo playing game, agentes inteligentes, aprendizado de máquinas, algoritmos genéticos e vida artificial.\"\n}",
-                "form": []
-            },
-            "auth": {
-                "type": "bearer",
-                "bearer": "{{access_token}}"
-            },
-            "tests": []
-        },
-        {
-            "_id": "72005a6b-e213-4118-a266-c2603de4de08",
-            "colId": "97f76680-4fa2-4afe-912d-6ec1bf05d0c6",
-            "containerId": "",
-            "name": "LivrosPut",
-            "url": "http://localhost:3333/api/livros/1",
-            "method": "PUT",
-            "sortNum": 37500,
-            "created": "2023-05-22T00:50:42.070Z",
-            "modified": "2023-05-22T00:50:42.070Z",
-            "headers": [],
-            "params": [],
-            "body": {
-                "type": "json",
-                "raw": "{\n  \"titulo\": \"Teste\",\n  \"resumo\": \"Teste\"\n}",
-                "form": []
-            },
-            "auth": {
-                "type": "bearer",
-                "bearer": "{{access_token}}"
-            },
-            "tests": []
-        },
-        {
-            "_id": "bd23d6d2-e319-4e4d-9a7a-26c5a2436ad9",
-            "colId": "97f76680-4fa2-4afe-912d-6ec1bf05d0c6",
-            "containerId": "",
-            "name": "LivrosDelete",
-            "url": "http://localhost:3333/api/livros/2",
-            "method": "DELETE",
-            "sortNum": 38750,
-            "created": "2023-05-22T00:50:42.071Z",
-            "modified": "2023-05-22T00:50:42.071Z",
-            "headers": [],
-            "params": [],
-            "auth": {
-                "type": "bearer",
-                "bearer": "{{access_token}}"
-            },
-            "tests": []
-        },
-        {
-            "_id": "17ae30f8-f50a-4f54-b6bc-e2e2d5293cd3",
-            "colId": "97f76680-4fa2-4afe-912d-6ec1bf05d0c6",
-            "containerId": "",
-            "name": "LivrosGetById",
-            "url": "http://localhost:3333/api/livros/1",
-            "method": "GET",
-            "sortNum": 39375,
-            "created": "2023-05-22T00:50:42.072Z",
-            "modified": "2023-05-22T00:50:42.072Z",
-            "headers": [],
-            "params": [],
-            "auth": {
-                "type": "bearer",
-                "bearer": "{{access_token}}"
-            },
-            "tests": []
-        },
-        {
-            "_id": "6d4c869b-b1a2-4c66-af41-f0d87228be03",
-            "colId": "97f76680-4fa2-4afe-912d-6ec1bf05d0c6",
-            "containerId": "",
-            "name": "LivrosGetAll",
-            "url": "http://localhost:3333/api/livros?limit=1&offset=0",
-            "method": "GET",
-            "sortNum": 39687.5,
-            "created": "2023-05-22T00:50:42.073Z",
-            "modified": "2023-05-22T00:50:42.073Z",
-            "headers": [],
-            "params": [
-                {
-                    "name": "limit",
-                    "value": "1",
-                    "isPath": false
-                },
-                {
-                    "name": "offset",
-                    "value": "0",
-                    "isPath": false
-                }
-            ],
-            "auth": {
-                "type": "bearer",
-                "bearer": "{{access_token}}"
-            },
-            "tests": []
-        },
-        {
-            "_id": "5ba0a6b4-34c1-48e8-85c6-34a5668ed279",
-            "colId": "97f76680-4fa2-4afe-912d-6ec1bf05d0c6",
-            "containerId": "",
-            "name": "EmprestimosPost",
-            "url": "http://localhost:3333/api/emprestimos",
+            "name": "CreateEstoque",
+            "url": "http://localhost:3333/api/estoques",
             "method": "POST",
             "sortNum": 40000,
-            "created": "2023-05-22T00:50:42.074Z",
-            "modified": "2023-05-22T00:50:42.074Z",
+            "created": "2023-05-22T22:29:11.270Z",
+            "modified": "2023-05-22T22:44:06.652Z",
             "headers": [],
             "params": [],
             "body": {
                 "type": "json",
-                "raw": "{\n  \"id_usuario\": 1,\n  \"data_retirada\": \"2022-10-10\",\n  \"status\": 1,\n  \"livro_ids\": [1, 2]\n}",
+                "raw": "{\n  \"nome\": \"Salgado\",\n  \"quantidade\": 50,\n  \"preco\": 9.5,\n  \"validade\": \"2022-05-30\"\n}",
                 "form": []
             },
             "auth": {
@@ -283,38 +172,15 @@
             "tests": []
         },
         {
-            "_id": "4fa97cdd-adfe-425a-bcc3-b290609320ce",
+            "_id": "60be2788-8f09-4bde-91c2-459109ad14cd",
             "colId": "97f76680-4fa2-4afe-912d-6ec1bf05d0c6",
             "containerId": "",
-            "name": "EmprestimosPut",
-            "url": "http://localhost:3333/api/emprestimos/2",
-            "method": "PUT",
-            "sortNum": 45000,
-            "created": "2023-05-22T00:50:42.075Z",
-            "modified": "2023-05-22T00:50:42.075Z",
-            "headers": [],
-            "params": [],
-            "body": {
-                "type": "json",
-                "raw": "{\n  \"status\": 2\n}",
-                "form": []
-            },
-            "auth": {
-                "type": "bearer",
-                "bearer": "{{access_token}}"
-            },
-            "tests": []
-        },
-        {
-            "_id": "2816607f-57e8-45ab-bcf3-34375c591031",
-            "colId": "97f76680-4fa2-4afe-912d-6ec1bf05d0c6",
-            "containerId": "",
-            "name": "EmprestimosGetById",
-            "url": "http://localhost:3333/api/emprestimos/2",
+            "name": "GetEstoqueById",
+            "url": "http://localhost:3333/api/estoques/1",
             "method": "GET",
             "sortNum": 50000,
-            "created": "2023-05-22T00:50:42.076Z",
-            "modified": "2023-05-22T00:50:42.076Z",
+            "created": "2023-05-22T22:45:10.826Z",
+            "modified": "2023-05-22T22:47:28.236Z",
             "headers": [],
             "params": [],
             "auth": {
@@ -324,28 +190,17 @@
             "tests": []
         },
         {
-            "_id": "15375a96-49f5-48bd-86a0-15cfe30fc3a3",
+            "_id": "1db26c44-24b7-4919-901c-5b30e60cf5b8",
             "colId": "97f76680-4fa2-4afe-912d-6ec1bf05d0c6",
             "containerId": "",
-            "name": "EmprestimosGetAll",
-            "url": "http://localhost:3333/api/emprestimos?limit=10&offset=0",
+            "name": "GetAllEstoque",
+            "url": "http://localhost:3333/api/estoques/",
             "method": "GET",
             "sortNum": 60000,
-            "created": "2023-05-22T00:50:42.077Z",
-            "modified": "2023-05-22T00:50:42.077Z",
+            "created": "2023-05-22T22:47:50.038Z",
+            "modified": "2023-05-22T22:48:16.398Z",
             "headers": [],
-            "params": [
-                {
-                    "name": "limit",
-                    "value": "10",
-                    "isPath": false
-                },
-                {
-                    "name": "offset",
-                    "value": "0",
-                    "isPath": false
-                }
-            ],
+            "params": [],
             "auth": {
                 "type": "bearer",
                 "bearer": "{{access_token}}"

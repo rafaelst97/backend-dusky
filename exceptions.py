@@ -27,3 +27,16 @@ class PedidoItensNotFoundError(PedidoItensException):
     def __init__(self):
         self.status_code = 404
         self.detail = "PEDIDO_ITENS_NAO_ENCONTRADO"
+
+class EstoqueException(Exception):
+    ...
+
+class EstoqueNotFoundError(EstoqueException):
+    def __init__(self):
+        self.status_code = 404
+        self.detail = "ESTOQUE_NAO_ENCONTRADO"
+
+class EstoqueAlreadyExistError(EstoqueException):
+    def __init__(self):
+        self.status_code = 409
+        self.detail = "ESTOQUE_DUPLICADO"

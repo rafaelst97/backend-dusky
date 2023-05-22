@@ -33,16 +33,15 @@ class PaginatedUsuario(BaseModel):
 
 class PedidoBase(BaseModel):
     id_usuario: int
-    status: int
+    valor_total: float
     data_pedido: date
 
-
 class PedidoUpdate(BaseModel):
-    status: int
+    pass
 
 
 class PedidoCreate(PedidoBase):
-    itens: List[int] = []
+    pass
 
 
 class Pedido(PedidoBase):

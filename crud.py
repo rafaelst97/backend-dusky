@@ -72,7 +72,9 @@ def create_pedido(db: Session, pedido: schemas.PedidoCreate):
 
 def update_pedido(db: Session, pedido_id: int, pedido: schemas.PedidoUpdate):
     db_pedido = get_pedido_by_id(db, pedido_id)
-    db_pedido.status = pedido.status
+    db_pedido.valor_total = pedido.valor_total
+    db_pedido.data_pedido = pedido.data_pedido
+    db_pedido.id_usuario = pedido.id_usuario
     db.commit()
     db.refresh(db_pedido)
     return db_pedido
@@ -112,5 +114,39 @@ def update_pedido_itens(db: Session, pedido_itens_id: int, pedido_itens: schemas
 def delete_pedido_itens_by_id(db: Session, pedido_itens_id: int):
     db_pedido_itens = get_pedido_itens_by_id(db, pedido_itens_id)
     db.delete(db_pedido_itens)
+    db.commit()
+    return
+
+# estoque
+
+def get_estoque_by_id(db: Session, estoque_id: int):
+    db_estoque = db.query(models.Estoque).get(estoque_id)
+    if db_estoque is None:
+        raise EstoqueNotFoundError
+    return db_estoque
+
+def get_all_estoques(db: Session, offset: int, limit: int):
+    return db.query(models.Estoque).offset(offset).limit(limit).all()
+
+def create_estoque(db: Session, estoque: schemas.EstoqueBase):
+    db_estoque = models.Estoque(**estoque.dict())
+    db.add(db_estoque)
+    db.commit()
+    db.refresh(db_estoque)
+    return db_estoque
+
+def update_estoque(db: Session, estoque_id: int, estoque: schemas.EstoqueBase):
+    db_estoque = get_estoque_by_id(db, estoque_id)
+    db_estoque.nome = estoque.nome
+    db_estoque.quantidade = estoque.quantidade
+    db_estoque.preco = estoque.preco
+    db_estoque.validade = estoque.validade
+    db.commit()
+    db.refresh(db_estoque)
+    return db_estoque
+
+def delete_estoque_by_id(db: Session, estoque_id: int):
+    db_estoque = get_estoque_by_id(db, estoque_id)
+    db.delete(db_estoque)
     db.commit()
     return
