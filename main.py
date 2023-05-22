@@ -13,7 +13,8 @@ app = FastAPI()
 @app.post("/api/signup", tags=["usuario"])
 async def user_signup(usuario: schemas.UsuarioCreate, db: Session = Depends(get_db)):
     try:
-        return signJWT(created_usuario.codigo_pessoa)
+        usuario = crud.create_usuario(db, usuario)
+        return signJWT(usuario.codigo_pessoa)
     except UsuarioException as cie:
         raise HTTPException(**cie.__dict__)
 
@@ -48,15 +49,15 @@ def create_usuario(usuario: schemas.UsuarioCreate, db: Session = Depends(get_db)
 @app.put("/api/usuarios/{usuario_id}", dependencies=[Depends(JWTBearer())], response_model=schemas.Usuario)
 def update_usuario(usuario_id: int, usuario: schemas.UsuarioCreate, db: Session = Depends(get_db)):
     try:
-        if crud.update_usuario(db, usuario_id, usuario):
-            return "atualizado com sucesso"
+        usuario = crud.update_usuario(db, usuario_id, usuario)
+        return usuario
     except UsuarioException as cie:
         raise HTTPException(**cie.__dict__)
 
 @app.delete("/api/usuarios/{usuario_id}", dependencies=[Depends(JWTBearer())])
-def delete_usuario_by_id(usuario_id: int, db: Session = Depends(get_db)):
+def delete_usuario(usuario_id: int, db: Session = Depends(get_db)):
     try:
-        return crud.delete_usuario_by_id(db, usuario_id)
+        return {"Usuário Deletado!"}
     except UsuarioException as cie:
         raise HTTPException(**cie.__dict__)
 

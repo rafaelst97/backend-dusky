@@ -45,7 +45,7 @@ def update_usuario(db: Session, usuario_id: int, usuario: schemas.UsuarioCreate)
     db_usuario.senha = bcrypt.hashpw(usuario.senha.encode("utf-8"), bcrypt.gensalt())
     db.commit()
     db.refresh(db_usuario)
-    return True
+    return db_usuario
 
 def delete_usuario(db: Session, usuario_id: int):
     db_usuario = get_usuario_by_id(db, usuario_id)
