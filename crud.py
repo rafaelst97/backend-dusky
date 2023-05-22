@@ -6,6 +6,9 @@ import bcrypt, models, schemas
 def get_usuario_by_email(db: Session, email: str):
     return db.query(models.Usuario).filter(models.Usuario.email == email).first()
 
+def get_usuario_by_codigo_pessoa(db: Session, codigo_pessoa: int):
+    return db.query(models.Usuario).filter(models.Usuario.codigo_pessoa == codigo_pessoa).first()
+
 def get_usuario_by_id(db: Session, usuario_id: int):
     db_usuario = db.query(models.Usuario).get(usuario_id)
     if db_usuario is None:
@@ -26,14 +29,23 @@ def create_usuario(db: Session, usuario: schemas.UsuarioCreate):
     db.refresh(db_usuario)
     return db_usuario
 
+def check_usuario(db: Session, usuario: schemas.UsuarioCreate):
+    db_usuario = get_usuario_by_codigo_pessoa(db, usuario.codigo_pessoa)
+    if db_usuario is None:
+        raise UsuarioNotFoundError
+    if not bcrypt.checkpw(usuario.senha.encode("utf-8"), db_usuario.senha.encode("utf-8")):
+        raise UsuarioNotFoundError
+    return True
+
 def update_usuario(db: Session, usuario_id: int, usuario: schemas.UsuarioCreate):
     db_usuario = get_usuario_by_id(db, usuario_id)
     db_usuario.nome = usuario.nome
     db_usuario.email = usuario.email
+    db_usuario.codigo_pessoa = usuario.codigo_pessoa
     db_usuario.senha = bcrypt.hashpw(usuario.senha.encode("utf-8"), bcrypt.gensalt())
     db.commit()
     db.refresh(db_usuario)
-    return db_usuario
+    return True
 
 def delete_usuario(db: Session, usuario_id: int):
     db_usuario = get_usuario_by_id(db, usuario_id)
