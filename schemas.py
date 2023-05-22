@@ -24,14 +24,6 @@ class UsuarioLoginSchema(BaseModel):
     codigo_pessoa: int
     senha: str
 
-    class Config:
-        schema_extra = {
-            "example": {
-                "codigo_pessoa": "123456",
-                "senha": "pass"
-            }
-        }
-
 
 class PaginatedUsuario(BaseModel):
     limit: int
