@@ -14,7 +14,7 @@ app = FastAPI()
 async def create_usuario_signup(usuario: schemas.UsuarioCreate = Body(...), db: Session = Depends(get_db)):
     try:
         crud.create_usuario(db, usuario)
-        return signJWT(usuario.codigo_pessoa)
+        return signJWT(usuario.email)
     except UsuarioException as cie:
         raise HTTPException(**cie.__dict__)
 
@@ -22,7 +22,7 @@ async def create_usuario_signup(usuario: schemas.UsuarioCreate = Body(...), db: 
 @app.post("/api/login", tags=["usuario"])
 async def user_login(usuario: schemas.UsuarioLoginSchema = Body(...), db: Session = Depends(get_db)):
     if crud.check_usuario(db, usuario):
-        return signJWT(usuario.codigo_pessoa)
+        return signJWT(usuario.email)
     raise HTTPException(status_code=400, detail="USUARIO_INCORRETO")
 
 # usuário
